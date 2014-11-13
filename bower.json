@@ -1,0 +1,27 @@
+{
+  "name": "palette",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Undistraction/palette",
+  "authors": [
+    "Pedr Browne <pedr.browne@gmail.com>"
+  ],
+  "description": "Palette is a very simple way to manage colour",
+  "keywords": [
+    "sass",
+    "color",
+    "colour",
+    "palette"
+  ],
+  "license": "MIT",
+  "main": "dist/_palette.scss",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "sassy-maps": "~0.4.0"
+  }
+}

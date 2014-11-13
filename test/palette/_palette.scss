@@ -1,0 +1,142 @@
+// // Override the pos-parse-value-filter function
+@import 'support/fixtures';
+
+@include describe("palette") {
+
+  $palette-map: $fixture-palette-map !global;
+
+  // Errors
+  // -----------------------------------------------------------------------------------------------
+
+
+
+  @include describe("with a single key") {
+
+    @include describe("mapped to an existing value") {
+
+      @include it("should return the value") {
+        @include should(
+          expect(
+             palette(blood-red)
+          ),
+          to( equal(
+            #FC0000
+          ))
+        );
+      }
+    }
+
+    @include describe("mapped to a non-existant value") {
+
+      @include it("should throw a pal-missing-color-error") {
+        @include reset-errors();
+        $result: palette(xxxxx);
+        @include should(
+          expect(
+            $pal-last-error
+          ),
+          to( equal(
+            $pal-missing-color-error
+          ))
+        );
+      }
+    }
+
+    @include describe("mapped to an existing map") {
+
+      @include it("should delegate to maps base value") {
+        @include should(
+          expect(
+             palette(midnight-blue)
+          ),
+          to( equal(
+            #03184C
+          ))
+        );
+      }
+    }
+
+    @include describe("mapped to a map without a base key") {
+
+        @include it("should throw a pal-missing-color-error") {
+          @include reset-errors();
+          $result: palette(xxxxx);
+          @include should(
+            expect(
+              $pal-last-error
+            ),
+            to( equal(
+              $pal-missing-color-error
+            ))
+          );
+        }
+      }
+  }
+
+  @include describe("with multiple arguments") {
+
+    @include describe("mapped to an existing value") {
+
+      @include it("should return the value") {
+        @include should(
+          expect(
+             palette(midnight-blue lightest)
+          ),
+          to( equal(
+            #095ED8
+          ))
+        );
+      }
+    }
+
+    @include describe("mapped to a non-existant value") {
+
+      @include it("should throw a pal-missing-color-error") {
+        @include reset-errors();
+        $result: palette(midnight-blue xxxxx);
+        @include should(
+          expect(
+            $pal-last-error
+          ),
+          to( equal(
+            $pal-missing-color-error
+          ))
+        );
+      }
+    }
+  }
+
+  @include describe("with a list as the single argument") {
+
+    @include describe("mapping to an existing value") {
+
+      @include it("should return the value") {
+        @include should(
+          expect(
+             palette($list-existant)
+          ),
+          to( equal(
+            #052972
+          ))
+        );
+      }
+    }
+
+    @include describe("mapping to a non-existant value") {
+
+      @include it("should throw a pal-missing-color-error") {
+        @include reset-errors();
+        $result: palette($list-non-existant);
+        @include should(
+          expect(
+            $pal-last-error
+          ),
+          to( equal(
+            $pal-missing-color-error
+          ))
+        );
+      }
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+$fixture-palette-map: (
+  blood-red: #FC0000,
+  midnight-blue: (
+    lightest: #095ED8,
+    lighter: #08409B,
+    light: #052972,
+    base: #03184C,
+    dark: #000D26
+  ),
+  yellow: ()
+);
+
+$list-existant: midnight-blue light;
+$list-non-existant: midnight-blue darkest;

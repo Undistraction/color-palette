@@ -1,0 +1,33 @@
+///
+///  Error thrown when a color value can't be found
+///
+$pal-missing-color-error: "Missing Color Error";
+
+// These items are used in test only
+$pal-last-error: null;
+$pal-under-test: false;
+$pal-error-thrown: false;
+
+/// By default, this function will throw a Sass error, but allows errors to be stopped during testing,
+/// with the error saved to `$pal-last-error` instead so tests can check it was thrown.
+///
+/// @param {String} $error
+///  The name of the error
+///
+/// @param {String} $message
+///  The error message
+///
+/// @returns {Map}
+///  A map of offsets to be rendered as CSS properties
+///
+@function pal-throw-error($error, $message) {
+  @if $pal-under-test {
+    @if not $pal-error-thrown {
+      $pal-error-thrown: true !global;
+      $pal-last-error: $error !global;
+    }
+  } @else {
+    @error "#{$error} #{$message}";
+  }
+  @return null;
+}

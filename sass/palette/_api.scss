@@ -1,0 +1,42 @@
+////
+/// @author Pedr Browne
+/// @access public
+/// @group API
+////
+
+$palette-map: () !default;
+
+// API
+// -------------------------------------------------------------------------------------------------
+
+@function palette($path...) {
+  $list: null;
+
+  // Handle lists so that they can be passed aswell as separate arguments
+  $first-argument: nth($path, 1);
+  @if type-of($first-argument) == list {
+    $list: $first-argument;
+  } @else {
+    $list: $path;
+  }
+
+  // Handle cases where a single key is passed - if the key's value is a map, delegate to its `base` value
+  @if length($list) == 1 {
+    $root-value: map-get($palette-map, $list...);
+    @if type-of($root-value) == map {
+      $list: append($list, base);
+    }@else if $root-value {
+      @return $root-value;
+    }
+  }
+
+  $value: map-get-deep($palette-map, $list);
+  @if $value {
+    @return $value;
+  }
+  @return pal-throw-error($pal-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($palette-map)}`");
+}
+
+@function p($path...) {
+  @return palette($path...)
+}
