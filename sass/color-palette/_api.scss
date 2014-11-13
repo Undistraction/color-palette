@@ -14,7 +14,7 @@ $color-palette-map: () !default;
 
 /// Lookup a colour value using a key or set of keys
 ///
-/// @param {List} $path
+/// @param {ArgList} $path
 ///   A key or list of keys mapping to a colour stored in the `$color-palette-map`.
 ///
 /// @returns {Color}
@@ -48,7 +48,7 @@ $color-palette-map: () !default;
   @if $value {
     @return $value;
   } @else {
-    @return map-get-deep($color-palette-map,cp-parse-value-filter($list));
+    @return map-get-deep($color-palette-map, cp-parse-value-filter($list...));
   }
 }
 

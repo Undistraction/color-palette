@@ -35,13 +35,13 @@ $cp-error-thrown: false;
 
 /// Overridable hook to handle unrecognised values. By default it will throw an error.
 ///
-/// @param {String} $value
+/// @param {ArgList} $value
 ///  An unrecognised value
 ///
 /// @returns {null}
 ///
 /// @throws $cp-missing-color-error
 ///
-@function cp-parse-value-filter($value) {
+@function cp-parse-value-filter($value...) {
   @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$value}` didn't exist in map `#{inspect($color-palette-map)}`");
 }
