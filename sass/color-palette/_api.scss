@@ -34,6 +34,11 @@ $color-palette-map: () !default;
     $list: $path;
   }
 
+  // Check whether the first value is present. If not, give the filter a chance to parse it
+  @if not map-has-key($color-palette-map, nth($list,1)) {
+    $list: cp-parse-value-filter($list...);
+  }
+
   // Handle cases where a single key is passed - if the key's value is a map, delegate to its `base` value
   @if length($list) == 1 {
     $root-value: map-get($color-palette-map, $list...);
@@ -48,7 +53,7 @@ $color-palette-map: () !default;
   @if $value {
     @return $value;
   } @else {
-    @return map-get-deep($color-palette-map, cp-parse-value-filter($list...));
+    @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$value}` didn't exist in map `#{inspect($color-palette-map)}`");
   }
 }
 
