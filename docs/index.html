@@ -8,7 +8,7 @@
   
   <meta charset="utf-8" />
 
-<title>Color Palette - v0.0.3</title>
+<title>Color Palette - v0.0.4</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width">
@@ -26,7 +26,7 @@
   <div class="sidebar__header">
   <h1 class="sidebar__title">
     
-      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.3</a>
+      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.4</a>
     
   </h1>
 </div>
@@ -241,6 +241,8 @@
   
 
   
+    
+  
 
   
     
@@ -250,7 +252,7 @@
 <div class="relative  clear  code--collapsed">
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
-    data-expanded="@function color-palette($path) { 
+    data-expanded="@function color-palette($path...) { 
   $list: null;
 
   // Handle lists so that they can be passed aswell as separate arguments
@@ -275,10 +277,10 @@
   @if $value {
     @return $value;
   } @else {
-    @return map-get-deep($color-palette-map,cp-parse-value-filter($list));
+    @return map-get-deep($color-palette-map, cp-parse-value-filter($list...));
   }
  }"
-    data-collapsed="@function color-palette($path) { ... }"><code>@function color-palette($path) { ... }</code></pre>
+    data-collapsed="@function color-palette($path...) { ... }"><code>@function color-palette($path...) { ... }</code></pre>
 
   
     <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L26-L53" class="item__source-link" target="_blank">View source</a>
@@ -322,7 +324,7 @@
 </td>
           <td data-label="type">
           
-            List
+            Arglist
           
           </td>
           <td data-label="default">
@@ -1023,6 +1025,8 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
   
 
   
+    
+  
 
   
     
@@ -1032,10 +1036,10 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
 <div class="relative  clear  code--collapsed">
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
-    data-expanded="@function cp-parse-value-filter($value) { 
+    data-expanded="@function cp-parse-value-filter($value...) { 
   @return cp-throw-error($cp-missing-color-error, &quot;Palette value at path: `#{$value}` didn&#39;t exist in map `#{inspect($color-palette-map)}`&quot;);
  }"
-    data-collapsed="@function cp-parse-value-filter($value) { ... }"><code>@function cp-parse-value-filter($value) { ... }</code></pre>
+    data-collapsed="@function cp-parse-value-filter($value...) { ... }"><code>@function cp-parse-value-filter($value...) { ... }</code></pre>
 
   
     <a href="https://github.com/Undistraction/color-palette/color-palette/_support.scss#L45-L47" class="item__source-link" target="_blank">View source</a>
@@ -1079,7 +1083,7 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
 </td>
           <td data-label="type">
           
-            String
+            Arglist
           
           </td>
           <td data-label="default">
@@ -1376,7 +1380,7 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
           
 
           <!-- Version -->
-          <span class="project-info__version"> - v0.0.3</span>
+          <span class="project-info__version"> - v0.0.4</span>
 
           <!-- License -->
           

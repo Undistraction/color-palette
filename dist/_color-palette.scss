@@ -1,4 +1,4 @@
-/*! color-palette v0.0.3 – 13.11.2014 */
+/*! color-palette v0.0.4 – 13.11.2014 */
 
 ///
 ///  Error thrown when a color value can't be found
@@ -37,14 +37,14 @@ $cp-error-thrown: false;
 
 /// Overridable hook to handle unrecognised values. By default it will throw an error.
 ///
-/// @param {String} $value
+/// @param {ArgList} $value
 ///  An unrecognised value
 ///
 /// @returns {null}
 ///
 /// @throws $cp-missing-color-error
 ///
-@function cp-parse-value-filter($value) {
+@function cp-parse-value-filter($value...) {
   @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$value}` didn't exist in map `#{inspect($color-palette-map)}`");
 }
 
@@ -64,7 +64,7 @@ $color-palette-map: () !default;
 
 /// Lookup a colour value using a key or set of keys
 ///
-/// @param {List} $path
+/// @param {ArgList} $path
 ///   A key or list of keys mapping to a colour stored in the `$color-palette-map`.
 ///
 /// @returns {Color}
@@ -98,7 +98,7 @@ $color-palette-map: () !default;
   @if $value {
     @return $value;
   } @else {
-    @return map-get-deep($color-palette-map,cp-parse-value-filter($list));
+    @return map-get-deep($color-palette-map, cp-parse-value-filter($list...));
   }
 }
 
