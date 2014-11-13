@@ -2,7 +2,7 @@
 
 ## Docs
 
-You can view the docs online [here](http://undistraction.github.io/palette/docs/) or locally in Chrome by running:
+You can view the docs online [here](http://undistraction.github.io/color-palette/docs/) or locally in Chrome by running:
 
 ```
 $ grunt docs
