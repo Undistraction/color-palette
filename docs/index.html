@@ -8,7 +8,7 @@
   
   <meta charset="utf-8" />
 
-<title>Color Palette - v0.0.6</title>
+<title>Color Palette - v0.0.7</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width">
@@ -26,7 +26,7 @@
   <div class="sidebar__header">
   <h1 class="sidebar__title">
     
-      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.6</a>
+      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.7</a>
     
   </h1>
 </div>
@@ -263,6 +263,11 @@
     $list: $path;
   }
 
+  // Check whether the first value is present. If not, give the filter a chance to parse it
+  @if not map-has-key($color-palette-map, nth($list,1)) {
+    $list: cp-parse-value-filter($list...);
+  }
+
   // Handle cases where a single key is passed - if the key&#39;s value is a map, delegate to its `base` value
   @if length($list) == 1 {
     $root-value: map-get($color-palette-map, $list...);
@@ -277,13 +282,13 @@
   @if $value {
     @return $value;
   } @else {
-    @return map-get-deep($color-palette-map, cp-parse-value-filter($list...));
+    @return cp-throw-error($cp-missing-color-error, &quot;Palette value at path: `#{$value}` didn&#39;t exist in map `#{inspect($color-palette-map)}`&quot;);
   }
  }"
     data-collapsed="@function color-palette($path...) { ... }"><code>@function color-palette($path...) { ... }</code></pre>
 
   
-    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L26-L53" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L26-L58" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -396,7 +401,33 @@
 
     
       <li>
+        <a href="#function-cp-throw-error"><code>cp-throw-error</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
         <a href="#variable-color-palette-map"><code>color-palette-map</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-cp-missing-color-error"><code>cp-missing-color-error</code></a>
         
       </li>
     
@@ -500,7 +531,7 @@
     data-collapsed="@function cp() { ... }"><code>@function cp() { ... }</code></pre>
 
   
-    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L59-L61" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L64-L66" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -961,6 +992,15 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
       <ul class="list-unstyled  list-inline">
     
 
+    <li><a href="#function-color-palette"><code>color-palette</code></a></li>
+  
+
+
+
+  
+
+    
+
     <li><a href="#function-cp-parse-value-filter"><code>cp-parse-value-filter</code></a></li>
   
 
@@ -1319,6 +1359,15 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
       <ul class="list-unstyled  list-inline">
     
 
+    <li><a href="#function-color-palette"><code>color-palette</code></a></li>
+  
+
+
+
+  
+
+    
+
     <li><a href="#function-cp-parse-value-filter"><code>cp-parse-value-filter</code></a></li>
   
 
@@ -1380,7 +1429,7 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
           
 
           <!-- Version -->
-          <span class="project-info__version"> - v0.0.6</span>
+          <span class="project-info__version"> - v0.0.7</span>
 
           <!-- License -->
           
