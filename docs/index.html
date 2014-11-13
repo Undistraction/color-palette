@@ -8,7 +8,7 @@
   
   <meta charset="utf-8" />
 
-<title>Palette - v0.0.0</title>
+<title>Color Palette - v0.0.0</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width">
@@ -26,7 +26,7 @@
   <div class="sidebar__header">
   <h1 class="sidebar__title">
     
-      <a href="https://github.com/Undistraction/Palette">Palette - v0.0.0</a>
+      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.0</a>
     
   </h1>
 </div>
@@ -54,8 +54,8 @@
           
           
             <ul class="list-unstyled">
-            <li class="sidebar__item  sassdoc__item" data-name="palette" data-type="function">
-              <a href="#function-palette">palette
+            <li class="sidebar__item  sassdoc__item" data-name="color-palette" data-type="function">
+              <a href="#function-color-palette">color-palette
               
               
               </a>
@@ -63,8 +63,8 @@
             
           
             
-            <li class="sidebar__item  sassdoc__item" data-name="p" data-type="function">
-              <a href="#function-p">p
+            <li class="sidebar__item  sassdoc__item" data-name="cp" data-type="function">
+              <a href="#function-cp">cp
               
               
               </a>
@@ -86,8 +86,8 @@
           
           
             <ul class="list-unstyled">
-            <li class="sidebar__item  sassdoc__item" data-name="palette-map" data-type="variable">
-              <a href="#variable-palette-map">palette-map
+            <li class="sidebar__item  sassdoc__item" data-name="color-palette-map" data-type="variable">
+              <a href="#variable-color-palette-map">color-palette-map
               
               
               </a>
@@ -138,8 +138,8 @@
           
           
             <ul class="list-unstyled">
-            <li class="sidebar__item  sassdoc__item" data-name="pal-missing-color-error" data-type="variable">
-              <a href="#variable-pal-missing-color-error">pal-missing-color-error
+            <li class="sidebar__item  sassdoc__item" data-name="cp-missing-color-error" data-type="variable">
+              <a href="#variable-cp-missing-color-error">cp-missing-color-error
               
               
               </a>
@@ -165,7 +165,7 @@
   <div class="container">
   
     <div class="header__description">
-      <p>Palette is a very simple way to manage colour</p>
+      <p>Color Palette is a very simple way to manage colour</p>
 
     </div>
   
@@ -205,12 +205,12 @@
 
               
               
-                <section class="main__item  item" id="function-palette">
+                <section class="main__item  item" id="function-color-palette">
 
 <h3 class="item__heading">
   
 
-  <a class="item__name" href="#function-palette">palette</a>
+  <a class="item__name" href="#function-color-palette">color-palette</a>
 
   
 
@@ -241,7 +241,7 @@
 <div class="relative  clear  code--collapsed">
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
-    data-expanded="@function palette($path) { 
+    data-expanded="@function color-palette($path) { 
   $list: null;
 
   // Handle lists so that they can be passed aswell as separate arguments
@@ -254,7 +254,7 @@
 
   // Handle cases where a single key is passed - if the key&#39;s value is a map, delegate to its `base` value
   @if length($list) == 1 {
-    $root-value: map-get($palette-map, $list...);
+    $root-value: map-get($color-palette-map, $list...);
     @if type-of($root-value) == map {
       $list: append($list, base);
     }@else if $root-value {
@@ -262,16 +262,16 @@
     }
   }
 
-  $value: map-get-deep($palette-map, $list);
+  $value: map-get-deep($color-palette-map, $list);
   @if $value {
     @return $value;
   }
-  @return pal-throw-error($pal-missing-color-error, &quot;Palette value at path: `#{$list}` didn&#39;t exist in map `#{inspect($palette-map)}`&quot;);
+  @return pal-throw-error($cp-missing-color-error, &quot;Palette value at path: `#{$list}` didn&#39;t exist in map `#{inspect($color-palette-map)}`&quot;);
  }"
-    data-collapsed="@function palette($path) { ... }"><code>@function palette($path) { ... }</code></pre>
+    data-collapsed="@function color-palette($path) { ... }"><code>@function color-palette($path) { ... }</code></pre>
 
   
-    <a href="https://github.com/Undistraction/palette/palette/_api.scss#L26-L52" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L26-L52" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -308,7 +308,7 @@
       
         <tr class="item__parameter">
           <th scope="row" data-label="name"><code>$path</code></th>
-          <td data-label="desc"><p>A key or list of keys mapping to a colour stored in the <code>$palette-map</code>.</p>
+          <td data-label="desc"><p>A key or list of keys mapping to a colour stored in the <code>$color-palette-map</code>.</p>
 </td>
           <td data-label="type">
           
@@ -351,7 +351,7 @@
 
   <ul class="list-unstyled">
     
-      <li><p>$pal-missing-color-error</p>
+      <li><p>$cp-missing-color-error</p>
 </li>
     
   </ul>
@@ -362,6 +362,51 @@
     
 
 
+  
+    
+      
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
+    
+
+    
+      <li>
+        <a href="#function-pal-throw-error"><code>pal-throw-error</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-color-palette-map"><code>color-palette-map</code></a>
+        
+      </li>
+    
+  
+
+
+
+  
+    
+
+    
+      <li>
+        <a href="#variable-cp-missing-color-error"><code>cp-missing-color-error</code></a>
+        
+      </li>
+    
+  
+
+
+
+
+</ul>
 
 
   
@@ -370,6 +415,21 @@
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#function-cp"><code>cp</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
@@ -409,12 +469,12 @@
 
 </section>
               
-                <section class="main__item  item" id="function-p">
+                <section class="main__item  item" id="function-cp">
 
 <h3 class="item__heading">
   
 
-  <a class="item__name" href="#function-p">p</a>
+  <a class="item__name" href="#function-cp">cp</a>
 
   
 
@@ -435,13 +495,13 @@
 <div class="relative  clear  code--collapsed">
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
-    data-expanded="@function p() { 
-  @return palette($path...)
+    data-expanded="@function cp() { 
+  @return color-palette($path...)
  }"
-    data-collapsed="@function p() { ... }"><code>@function p() { ... }</code></pre>
+    data-collapsed="@function cp() { ... }"><code>@function cp() { ... }</code></pre>
 
   
-    <a href="https://github.com/Undistraction/palette/palette/_api.scss#L58-L60" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L58-L60" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -486,39 +546,44 @@
     
 
 
-
-
-  
-    
-    
-
-
-
-
-
-  
-    
-    
-
-  
-    
-    
-
-
   
     
       
-      <h3 class="item__sub-heading">See</h3>
-      <ul class="list-unstyled  list-inline">
+      <h3 class="item__sub-heading">Requires</h3>
+      <ul class="list-unstyled">
     
 
-    <li><a href="#function-palette"><code>palette</code></a></li>
+    
+      <li>
+        <a href="#function-color-palette"><code>color-palette</code></a>
+        
+      </li>
+    
   
 
 
 
 
 </ul>
+
+
+  
+    
+    
+
+
+
+
+
+  
+    
+    
+
+  
+    
+    
+
+
 
 
   
@@ -561,12 +626,12 @@
 
               
               
-                <section class="main__item  item" id="variable-palette-map">
+                <section class="main__item  item" id="variable-color-palette-map">
 
 <h3 class="item__heading">
   
 
-  <a class="item__name" href="#variable-palette-map">palette-map</a>
+  <a class="item__name" href="#variable-color-palette-map">color-palette-map</a>
 
   
 
@@ -582,10 +647,10 @@
 
 
 <div class="relative  clear">
-  <pre class="item__code  language-scss"><code>$palette-map: () !default;</code></pre>
+  <pre class="item__code  language-scss"><code>$color-palette-map: () !default;</code></pre>
 
   
-    <a href="https://github.com/Undistraction/palette/palette/_api.scss" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_api.scss#L10-L10" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -628,6 +693,21 @@
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#function-color-palette"><code>color-palette</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
@@ -736,10 +816,10 @@
   <pre class="item__code  item__code--togglable  language-scss"
     data-current-state="collapsed"
     data-expanded="@function pal-throw-error($error, $message) { 
-  @if $pal-under-test {
-    @if not $pal-error-thrown {
-      $pal-error-thrown: true !global;
-      $pal-last-error: $error !global;
+  @if $cp-under-test {
+    @if not $cp-error-thrown {
+      $cp-error-thrown: true !global;
+      $cp-last-error: $error !global;
     }
   } @else {
     @error &quot;#{$error} #{$message}&quot;;
@@ -749,7 +829,7 @@
     data-collapsed="@function pal-throw-error($error, $message) { ... }"><code>@function pal-throw-error($error, $message) { ... }</code></pre>
 
   
-    <a href="https://github.com/Undistraction/palette/palette/_support.scss#L23-L33" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_support.scss#L23-L33" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -764,7 +844,7 @@
   <h3 class="item__sub-heading">Description</h3>
 
   <div class="item__description"><p>By default, this function will throw a Sass error, but allows errors to be stopped during testing,
-with the error saved to <code>$pal-last-error</code> instead so tests can check it was thrown.</p>
+with the error saved to <code>$cp-last-error</code> instead so tests can check it was thrown.</p>
 </div>
 
 
@@ -842,6 +922,15 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
   
     
     
+  <h3 class="item__sub-heading">Throws</h3>
+
+  <ul class="list-unstyled">
+    
+      <li><h1 id="-error-message-">{$error} #{$message}</h1>
+</li>
+    
+  </ul>
+
 
   
     
@@ -856,6 +945,21 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#function-color-palette"><code>color-palette</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
@@ -900,12 +1004,12 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
 
               
               
-                <section class="main__item  item" id="variable-pal-missing-color-error">
+                <section class="main__item  item" id="variable-cp-missing-color-error">
 
 <h3 class="item__heading">
   
 
-  <a class="item__name" href="#variable-pal-missing-color-error">pal-missing-color-error</a>
+  <a class="item__name" href="#variable-cp-missing-color-error">cp-missing-color-error</a>
 
   
 
@@ -921,10 +1025,10 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
 
 
 <div class="relative  clear">
-  <pre class="item__code  language-scss"><code>$pal-missing-color-error: "Missing Color Error";</code></pre>
+  <pre class="item__code  language-scss"><code>$cp-missing-color-error: &quot;Missing Color Error&quot;;</code></pre>
 
   
-    <a href="https://github.com/Undistraction/palette/palette/_support.scss" class="item__source-link" target="_blank">View source</a>
+    <a href="https://github.com/Undistraction/color-palette/color-palette/_support.scss#L4-L4" class="item__source-link" target="_blank">View source</a>
   
 </div>
 
@@ -967,6 +1071,21 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
 
 
 
+  
+
+    
+      
+      <h3 class="item__sub-heading">Used by</h3>
+      <ul class="list-unstyled  list-inline">
+    
+
+    <li><a href="#function-color-palette"><code>color-palette</code></a></li>
+  
+
+
+
+
+</ul>
 
 
   
@@ -1017,7 +1136,7 @@ with the error saved to <code>$pal-last-error</code> instead so tests can check 
         <div class="footer__project-info  project-info">
           <!-- Name and URL -->
           
-            <a class="project-info__name" href="https://github.com/Undistraction/Palette">Palette</a>
+            <a class="project-info__name" href="https://github.com/Undistraction/color-palette">Color Palette</a>
           
 
           <!-- Version -->

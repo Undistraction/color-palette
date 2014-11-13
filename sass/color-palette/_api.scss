@@ -7,7 +7,7 @@
 ///
 /// A map containing color values
 ///
-$palette-map: () !default;
+$color-palette-map: () !default;
 
 // API
 // -------------------------------------------------------------------------------------------------
@@ -15,15 +15,15 @@ $palette-map: () !default;
 /// Lookup a colour value using a key or set of keys
 ///
 /// @param {List} $path
-///   A key or list of keys mapping to a colour stored in the `$palette-map`.
+///   A key or list of keys mapping to a colour stored in the `$color-palette-map`.
 ///
 /// @returns {Color}
 ///   A Color value.
 ///
 /// @throws
-///   $pal-missing-color-error
+///   $cp-missing-color-error
 ///
-@function palette($path...) {
+@function color-palette($path...) {
   $list: null;
 
   // Handle lists so that they can be passed aswell as separate arguments
@@ -36,7 +36,7 @@ $palette-map: () !default;
 
   // Handle cases where a single key is passed - if the key's value is a map, delegate to its `base` value
   @if length($list) == 1 {
-    $root-value: map-get($palette-map, $list...);
+    $root-value: map-get($color-palette-map, $list...);
     @if type-of($root-value) == map {
       $list: append($list, base);
     }@else if $root-value {
@@ -44,17 +44,17 @@ $palette-map: () !default;
     }
   }
 
-  $value: map-get-deep($palette-map, $list);
+  $value: map-get-deep($color-palette-map, $list);
   @if $value {
     @return $value;
   }
-  @return pal-throw-error($pal-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($palette-map)}`");
+  @return pal-throw-error($cp-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($color-palette-map)}`");
 }
 
 ///
 /// A convenience function that calls `palette`.
 /// @see palette
 ///
-@function p($path...) {
-  @return palette($path...)
+@function cp($path...) {
+  @return color-palette($path...)
 }

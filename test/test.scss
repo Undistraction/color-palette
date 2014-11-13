@@ -1,10 +1,10 @@
 @import "bootcamp";
 @import "sassy-maps";
-@import "palette/support/reset-errors";
-@import "../sass/palette";
+@import "color-palette/support/reset-errors";
+@import "../sass/color-palette";
 
 @include runner-start;
 
-@import "palette/palette.scss";
+@import "color-palette/color-palette.scss";
 
 @include runner-end;

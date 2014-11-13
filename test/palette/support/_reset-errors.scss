@@ -1,5 +1,0 @@
-@mixin reset-errors() {
-  $pal-last-error: null !global;
-  $pal-under-test: true !global;
-  $pal-error-thrown: false !global;
-}

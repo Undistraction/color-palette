@@ -1,9 +1,9 @@
 // // Override the pos-parse-value-filter function
 @import 'support/fixtures';
 
-@include describe("palette") {
+@include describe("color-palette") {
 
-  $palette-map: $fixture-palette-map !global;
+  $color-palette-map: $fixture-color-palette-map !global;
 
   // Errors
   // -----------------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@
       @include it("should return the value") {
         @include should(
           expect(
-             palette(blood-red)
+             color-palette(blood-red)
           ),
           to( equal(
             #FC0000
@@ -30,13 +30,13 @@
 
       @include it("should throw a pal-missing-color-error") {
         @include reset-errors();
-        $result: palette(xxxxx);
+        $result: color-palette(xxxxx);
         @include should(
           expect(
-            $pal-last-error
+            $cp-last-error
           ),
           to( equal(
-            $pal-missing-color-error
+            $cp-missing-color-error
           ))
         );
       }
@@ -47,7 +47,7 @@
       @include it("should delegate to maps base value") {
         @include should(
           expect(
-             palette(midnight-blue)
+             color-palette(midnight-blue)
           ),
           to( equal(
             #03184C
@@ -60,13 +60,13 @@
 
         @include it("should throw a pal-missing-color-error") {
           @include reset-errors();
-          $result: palette(xxxxx);
+          $result: color-palette(xxxxx);
           @include should(
             expect(
-              $pal-last-error
+              $cp-last-error
             ),
             to( equal(
-              $pal-missing-color-error
+              $cp-missing-color-error
             ))
           );
         }
@@ -80,7 +80,7 @@
       @include it("should return the value") {
         @include should(
           expect(
-             palette(midnight-blue lightest)
+             color-palette(midnight-blue lightest)
           ),
           to( equal(
             #095ED8
@@ -93,13 +93,13 @@
 
       @include it("should throw a pal-missing-color-error") {
         @include reset-errors();
-        $result: palette(midnight-blue xxxxx);
+        $result: color-palette(midnight-blue xxxxx);
         @include should(
           expect(
-            $pal-last-error
+            $cp-last-error
           ),
           to( equal(
-            $pal-missing-color-error
+            $cp-missing-color-error
           ))
         );
       }
@@ -113,7 +113,7 @@
       @include it("should return the value") {
         @include should(
           expect(
-             palette($list-existant)
+             color-palette($list-existant)
           ),
           to( equal(
             #052972
@@ -126,13 +126,13 @@
 
       @include it("should throw a pal-missing-color-error") {
         @include reset-errors();
-        $result: palette($list-non-existant);
+        $result: color-palette($list-non-existant);
         @include should(
           expect(
-            $pal-last-error
+            $cp-last-error
           ),
           to( equal(
-            $pal-missing-color-error
+            $cp-missing-color-error
           ))
         );
       }

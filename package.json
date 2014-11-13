@@ -1,9 +1,9 @@
 {
-  "name": "Palette",
-  "title": "Palette",
+  "name": "color-palette",
+  "title": "Color Palette",
   "version": "0.0.0",
-  "description": "Palette is a very simple way to manage colour",
-  "main": "dist/_palette.scss",
+  "description": "Color Palette is a very simple way to manage colour",
+  "main": "dist/_color-palette.scss",
   "directories": {
     "doc": "docs"
   },
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Undistraction/Palette.git"
+    "url": "git://github.com/Undistraction/color-palette.git"
   },
   "keywords": [
     "sass",
@@ -37,7 +37,7 @@
   "author": "Pedr Browne (pedr.browne@gmail.com)",
   "license": "MIT-LICENSE",
   "bugs": {
-    "url": "https://github.com/Undistraction/Palette/issues"
+    "url": "https://github.com/Undistraction/color-palette/issues"
   },
-  "homepage": "https://github.com/Undistraction/Palette"
+  "homepage": "https://github.com/Undistraction/color-palette"
 }

@@ -3,15 +3,15 @@
 ///
 ///  Error thrown when a color value can't be found
 ///
-$pal-missing-color-error: "Missing Color Error";
+$cp-missing-color-error: "Missing Color Error";
 
 // These items are used in test only
-$pal-last-error: null;
-$pal-under-test: false;
-$pal-error-thrown: false;
+$cp-last-error: null;
+$cp-under-test: false;
+$cp-error-thrown: false;
 
 /// By default, this function will throw a Sass error, but allows errors to be stopped during testing,
-/// with the error saved to `$pal-last-error` instead so tests can check it was thrown.
+/// with the error saved to `$cp-last-error` instead so tests can check it was thrown.
 ///
 /// @param {String} $error
 ///  The name of the error
@@ -23,10 +23,10 @@ $pal-error-thrown: false;
 ///  A map of offsets to be rendered as CSS properties
 ///
 @function pal-throw-error($error, $message) {
-  @if $pal-under-test {
-    @if not $pal-error-thrown {
-      $pal-error-thrown: true !global;
-      $pal-last-error: $error !global;
+  @if $cp-under-test {
+    @if not $cp-error-thrown {
+      $cp-error-thrown: true !global;
+      $cp-last-error: $error !global;
     }
   } @else {
     @error "#{$error} #{$message}";
@@ -43,7 +43,7 @@ $pal-error-thrown: false;
 ///
 /// A map containing color values
 ///
-$palette-map: () !default;
+$color-palette-map: () !default;
 
 // API
 // -------------------------------------------------------------------------------------------------
@@ -51,13 +51,13 @@ $palette-map: () !default;
 /// Lookup a colour value using a key or set of keys
 ///
 /// @param {List} $path
-///   A key or list of keys mapping to a colour stored in the `$palette-map`.
+///   A key or list of keys mapping to a colour stored in the `$color-palette-map`.
 ///
 /// @returns {Color}
 ///   A Color value.
 ///
 /// @throws
-///   $pal-missing-color-error
+///   $cp-missing-color-error
 ///
 @function palette($path...) {
   $list: null;
@@ -72,7 +72,7 @@ $palette-map: () !default;
 
   // Handle cases where a single key is passed - if the key's value is a map, delegate to its `base` value
   @if length($list) == 1 {
-    $root-value: map-get($palette-map, $list...);
+    $root-value: map-get($color-palette-map, $list...);
     @if type-of($root-value) == map {
       $list: append($list, base);
     }@else if $root-value {
@@ -80,11 +80,11 @@ $palette-map: () !default;
     }
   }
 
-  $value: map-get-deep($palette-map, $list);
+  $value: map-get-deep($color-palette-map, $list);
   @if $value {
     @return $value;
   }
-  @return pal-throw-error($pal-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($palette-map)}`");
+  @return pal-throw-error($cp-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($color-palette-map)}`");
 }
 
 ///

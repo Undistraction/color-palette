@@ -1,0 +1,5 @@
+@mixin reset-errors() {
+  $cp-last-error: null !global;
+  $cp-under-test: true !global;
+  $cp-error-thrown: false !global;
+}
