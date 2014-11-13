@@ -8,7 +8,7 @@
   
   <meta charset="utf-8" />
 
-<title>Color Palette - v0.0.7</title>
+<title>Color Palette - v0.0.8</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width">
@@ -26,7 +26,7 @@
   <div class="sidebar__header">
   <h1 class="sidebar__title">
     
-      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.7</a>
+      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.8</a>
     
   </h1>
 </div>
@@ -282,7 +282,7 @@
   @if $value {
     @return $value;
   } @else {
-    @return cp-throw-error($cp-missing-color-error, &quot;Palette value at path: `#{$value}` didn&#39;t exist in map `#{inspect($color-palette-map)}`&quot;);
+    @return cp-throw-error($cp-missing-color-error, &quot;Palette value at path: `#{$list}` didn&#39;t exist in map `#{inspect($color-palette-map)}`&quot;);
   }
  }"
     data-collapsed="@function color-palette($path...) { ... }"><code>@function color-palette($path...) { ... }</code></pre>
@@ -1429,7 +1429,7 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
           
 
           <!-- Version -->
-          <span class="project-info__version"> - v0.0.7</span>
+          <span class="project-info__version"> - v0.0.8</span>
 
           <!-- License -->
           
