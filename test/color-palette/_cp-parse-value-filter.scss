@@ -1,0 +1,18 @@
+@function cp-parse-value-filter($value) {
+  @return midnight-blue dark;
+}
+
+@include describe("cp-parse-value-filter") {
+  @include describe("with an overridden filter function"){
+    @include it("should return the value defined in the filter") {
+      @include should(
+        expect(
+           color-palette(xxxx)
+        ),
+        to( equal(
+          #000D26
+        ))
+      );
+    }
+  }
+}

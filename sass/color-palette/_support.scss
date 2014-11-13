@@ -20,7 +20,7 @@ $cp-error-thrown: false;
 /// @returns {Map}
 ///  A map of offsets to be rendered as CSS properties
 ///
-@function pal-throw-error($error, $message) {
+@function cp-throw-error($error, $message) {
   @if $cp-under-test {
     @if not $cp-error-thrown {
       $cp-error-thrown: true !global;
@@ -30,4 +30,18 @@ $cp-error-thrown: false;
     @error "#{$error} #{$message}";
   }
   @return null;
+}
+
+
+/// Overridable hook to handle unrecognised values. By default it will throw an error.
+///
+/// @param {String} $value
+///  An unrecognised value
+///
+/// @returns {null}
+///
+/// @throws $cp-missing-color-error
+///
+@function cp-parse-value-filter($value) {
+  @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$value}` didn't exist in map `#{inspect($color-palette-map)}`");
 }

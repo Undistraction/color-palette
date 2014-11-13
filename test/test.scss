@@ -6,5 +6,6 @@
 @include runner-start;
 
 @import "color-palette/color-palette.scss";
+@import "color-palette/cp-parse-value-filter";
 
 @include runner-end;

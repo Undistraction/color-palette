@@ -47,8 +47,9 @@ $color-palette-map: () !default;
   $value: map-get-deep($color-palette-map, $list);
   @if $value {
     @return $value;
+  } @else {
+    @return map-get-deep($color-palette-map,cp-parse-value-filter($list));
   }
-  @return pal-throw-error($cp-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($color-palette-map)}`");
 }
 
 ///
