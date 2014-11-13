@@ -53,7 +53,7 @@ $color-palette-map: () !default;
   @if $value {
     @return $value;
   } @else {
-    @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$value}` didn't exist in map `#{inspect($color-palette-map)}`");
+    @return cp-throw-error($cp-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($color-palette-map)}`");
   }
 }
 
