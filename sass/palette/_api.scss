@@ -4,11 +4,25 @@
 /// @group API
 ////
 
+///
+/// A map containing color values
+///
 $palette-map: () !default;
 
 // API
 // -------------------------------------------------------------------------------------------------
 
+/// Lookup a colour value using a key or set of keys
+///
+/// @param {List} $path
+///   A key or list of keys mapping to a colour stored in the `$palette-map`.
+///
+/// @returns {Color}
+///   A Color value.
+///
+/// @throws
+///   $pal-missing-color-error
+///
 @function palette($path...) {
   $list: null;
 
@@ -37,6 +51,10 @@ $palette-map: () !default;
   @return pal-throw-error($pal-missing-color-error, "Palette value at path: `#{$list}` didn't exist in map `#{inspect($palette-map)}`");
 }
 
+///
+/// A convenience function that calls `palette`.
+/// @see palette
+///
 @function p($path...) {
   @return palette($path...)
 }
