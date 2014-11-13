@@ -13,5 +13,6 @@
   },
 
   "theme": "default",
-  "basePath": "https://github.com/Undistraction/color-palette"
+  "basePath": "https://github.com/Undistraction/color-palette",
+  "force": true
 }
