@@ -8,7 +8,7 @@
   
   <meta charset="utf-8" />
 
-<title>Color Palette - v0.0.9</title>
+<title>Color Palette - v0.0.11</title>
 <link rel="stylesheet" href="assets/css/main.css" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width">
@@ -26,7 +26,7 @@
   <div class="sidebar__header">
   <h1 class="sidebar__title">
     
-      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.9</a>
+      <a href="https://github.com/Undistraction/color-palette">Color Palette - v0.0.11</a>
     
   </h1>
 </div>
@@ -270,7 +270,7 @@
 
   // Handle cases where a single key is passed - if the key&#39;s value is a map, delegate to its `base` value
   @if length($list) == 1 {
-    $root-value: map-get($color-palette-map, $list...);
+    $root-value: map-get($color-palette-map, nth($list, 1));
     @if type-of($root-value) == map {
       $list: append($list, base);
     }@else if $root-value {
@@ -1429,7 +1429,7 @@ with the error saved to <code>$cp-last-error</code> instead so tests can check i
           
 
           <!-- Version -->
-          <span class="project-info__version"> - v0.0.9</span>
+          <span class="project-info__version"> - v0.0.11</span>
 
           <!-- License -->
           
