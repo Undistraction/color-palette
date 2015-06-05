@@ -1,7 +1,7 @@
 {
   "name": "color-palette",
   "title": "Color Palette",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Color Palette is a very simple way to manage colour",
   "main": "dist/_color-palette.scss",
   "directories": {

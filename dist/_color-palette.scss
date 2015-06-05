@@ -1,4 +1,4 @@
-/*! color-palette v0.0.9 – 13.11.2014 */
+/*! color-palette v0.0.11 – 05.06.2015 */
 
 ///
 ///  Error thrown when a color value can't be found
@@ -91,7 +91,7 @@ $color-palette-map: () !default;
 
   // Handle cases where a single key is passed - if the key's value is a map, delegate to its `base` value
   @if length($list) == 1 {
-    $root-value: map-get($color-palette-map, $list...);
+    $root-value: map-get($color-palette-map, nth($list, 1));
     @if type-of($root-value) == map {
       $list: append($list, base);
     }@else if $root-value {
